@@ -1,7 +1,9 @@
 Scriptname nl_util
-
-;@author NeverLost
-;@version 1.0.0
+{
+	Various useful papyrus utility functions
+	@author NeverLost
+	@version 1.0.0	
+}
 
 import Math
 import Game
@@ -10,14 +12,14 @@ import StringUtil
 ;----------\
 ; DANGEROUS \
 ;--------------------------------------------------------
-; I RECOMMEND NOT USING THESE
-; IF YOU DO NOT KNOW WHAT YOU ARE DOING
-; NOT SAFE!
 
-;@param int i start index
-;@param int j start index + length. If j is -1, it is interpreted to be the end of the store
-;@return string store with span removed
 string function DelSpan(string store, int i, int j) global
+{
+	DANGEROUS -> DO NOT USE THESE IF YOU DO NOT KNOW WHAT YOU ARE DOING
+	@param i - start index
+	@param j - start index + length. If j is -1, it is interpreted to be the end of the store
+	@return String store with span removed
+}
 	if j == -1
 	; Nothing left
 		if i == 0
@@ -35,10 +37,13 @@ string function DelSpan(string store, int i, int j) global
 	endif
 endfunction
 
-;@param int i start index
-;@param int j start index + length. If j is -1, it is interpreted to be the end of the store
-;@return string span
 string function GetSpan(string store, int i, int j) global
+{
+	DANGEROUS -> DO NOT USE THESE IF YOU DO NOT KNOW WHAT YOU ARE DOING
+	@param i - start index
+	@param j - start index + length. If j is -1, it is interpreted to be the end of the store
+	@return String span
+}
 	if j == -1
 		if i == 0
 			return store
@@ -58,10 +63,11 @@ string function GetFormModName(form mod_form) global
 	int form_id = mod_form.GetFormID()
 	int index = RightShift(form_id, 24)
 
-	; Light
+	; Light (Comment out and recompile if using Classic Edition)
 	if index == 254
 		return GetLightModName(RightShift(form_id, 12) - 0xFE000)
 	endif
+	
 	; Normal
 	return GetModName(index)
 endfunction
