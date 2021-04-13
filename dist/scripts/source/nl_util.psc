@@ -72,28 +72,6 @@ string function GetFormModName(form mod_form) global
 	return GetModName(index)
 endfunction
 
-; TODO(NeverLost): Implement
-function CutStringArray(string[] stringArray, int cutIndex)
-	;if stringArray.length < 2
-	;	return stringArray
-	;endIf
-
-	;string[] newStringArray = CreateStringArray(stringArray.length - 1)
-	;int oldAIndex
-	;int newAIndex
-		
-	;while oldAIndex < stringArray.length && newAIndex < stringArray.length - 1
-	;	if oldAIndex != cutIndex
-	;		newStringArray[newAIndex] = stringArray[oldAIndex]
-	;		newAIndex += 1
-	;	endIf
-	;		
-	;	oldAIndex += 1
-	;endWhile
-	
-	;return newStringArray
-endFunction
-
 ;-----\-------------\
 ; SAFE \ GROUP STORE \
 ;--------------------------------------------------------
@@ -173,7 +151,7 @@ string function GetFirstGroupID(string store) global
     return SubString(store, 1, Find(store, "\\") - 1)
 endfunction
 
-string[]function GetGroupIDs(string store) global
+string[] function GetGroupIDs(string store) global
 	string[] groups = Split(store, "|")
 	
 	if !groups
