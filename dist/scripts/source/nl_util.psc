@@ -72,6 +72,22 @@ string function GetFormModName(form mod_form) global
 	return GetModName(index)
 endfunction
 
+string function GetFormScriptName(form mod_form) global
+	string form_string = mod_form as string
+	int i = 1
+	int j = Find(form_string, " <")
+
+	return SubString(form_string, i, j)
+endfunction
+
+string function GetFormEditorID(form mod_form) global
+	string form_string = mod_form as string
+	int i = Find(form_string, " <") + 2
+	int j = Find(form_string, " (", i)
+
+	return SubString(form_string, i, j)
+endfunction
+
 ;-----\-------------\
 ; SAFE \ GROUP STORE \
 ;--------------------------------------------------------
