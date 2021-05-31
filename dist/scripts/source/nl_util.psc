@@ -75,7 +75,7 @@ endfunction
 string function GetFormScriptName(form mod_form) global
 	string form_string = mod_form as string
 	int i = 1
-	int j = Find(form_string, " <")
+	int j = Find(form_string, " <") - 1
 
 	return SubString(form_string, i, j)
 endfunction
@@ -83,7 +83,7 @@ endfunction
 string function GetFormEditorID(form mod_form) global
 	string form_string = mod_form as string
 	int i = Find(form_string, " <") + 2
-	int j = Find(form_string, " (", i)
+	int j = Find(form_string, " (", i) - j
 
 	return SubString(form_string, i, j)
 endfunction
