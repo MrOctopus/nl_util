@@ -83,7 +83,7 @@ endfunction
 string function GetFormEditorID(form mod_form) global
 	string form_string = mod_form as string
 	int i = Find(form_string, " <") + 2
-	int j = Find(form_string, " (", i) - j
+	int j = Find(form_string, " (", i) - i
 
 	return SubString(form_string, i, j)
 endfunction
